@@ -22,6 +22,8 @@ You should get a running RKE Cluster on 3 LXC with Rancher Server on top in less
 
 ## Blog post
 
-Coming asap or never :-)
+Blog post will be published on medium:
+
+https://blog.kubernauts.io/
 
 
