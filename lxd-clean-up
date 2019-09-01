@@ -4,7 +4,7 @@ lxc delete <whatever came from list>
 lxc image list
 lxc image delete <whatever came from list>
 lxc network list
-lxc network delete <whatever came from list>
+lxc network delete lxdbr0
 echo '{“config”: {}}' | lxc profile edit default
 lxc profile show default
 lxc storage volume list default

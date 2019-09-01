@@ -11,6 +11,8 @@ This setup was tested on AWS with Ubuntu 18.04 t2-xlarge instance (4vCPU, 16GB R
 Clone this repo and run the scripts as follow:
 
 ```bash
+git clone https://github.com/arashkaffamanesh/lxc-rke-rancher.git
+cd lxc-rke-rancher/
 ./1-deploy-lxc-containers.sh
 ./2-deploy-rke.sh
 ./3-deploy-rancher-on-rke.sh

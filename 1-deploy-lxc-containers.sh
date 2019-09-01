@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo chown -R ubuntu:ubuntu .config
+sudo chown -R ubuntu:ubuntu /home/ubuntu/.config
 lxd init --preseed < lxd-init.yaml
 #sudo lxc delete rke1 rke2 rke3 --force
 NODES=$(echo rke{1..3})
