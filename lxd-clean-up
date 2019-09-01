@@ -1,0 +1,12 @@
+
+lxc list
+lxc delete <whatever came from list>
+lxc image list
+lxc image delete <whatever came from list>
+lxc network list
+lxc network delete <whatever came from list>
+echo '{“config”: {}}' | lxc profile edit default
+lxc profile show default
+lxc storage volume list default
+lxc storage volume delete default <whatever came from list>
+lxc storage delete default

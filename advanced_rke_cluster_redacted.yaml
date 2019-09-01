@@ -1,0 +1,26 @@
+cluster_name: infra-rancher-cluster
+ignore_docker_version: true
+ssh_key_path: ~/.ssh/id_rsa
+network:
+  plugin: flannel
+system_images:
+        kubernetes: rancher/hyperkube:v1.13.5-rancher1
+nodes:
+  - address: rke1
+    internal_address: 10.22.230.18
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+  - address: rke2
+    internal_address: 10.22.230.22
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+  - address: rke3
+    internal_address: 10.22.230.180
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+

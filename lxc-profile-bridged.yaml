@@ -1,0 +1,8 @@
+description: Bridged networking LXD profile
+devices:
+  eth0:
+    name: eth0
+    nictype: bridged
+    parent: lxdbr0
+    type: nic
+# lxc profile edit bridged < lxd-profile-bridged.yaml

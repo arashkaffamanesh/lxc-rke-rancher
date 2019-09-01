@@ -1,0 +1,24 @@
+ignore_docker_version: true
+ssh_key_path: ~/.ssh/id_rsa
+network:
+  plugin: canal
+  # plugin: flannel
+  # flannel on lxc has problems
+system_images:
+        # kubernetes: rancher/hyperkube:v1.13.5-rancher1
+        kubernetes: rancher/hyperkube:v1.14.6-rancher1
+nodes:
+  - address: rke1
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+  - address: rke2
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+  - address: rke3
+    user: ubuntu
+    role: [controlplane,worker,etcd]
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h

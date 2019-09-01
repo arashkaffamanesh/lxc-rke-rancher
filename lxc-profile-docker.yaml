@@ -1,0 +1,9 @@
+config:
+  linux.kernel_modules: overlay,aufs
+  raw.lxc: |-
+    lxc.apparmor.profile = unconfined
+    lxc.cgroup.devices.allow = a
+    lxc.mount.auto=proc:rw sys:rw
+    lxc.cap.drop =
+  security.nesting: "true"
+  security.privileged: "true"
