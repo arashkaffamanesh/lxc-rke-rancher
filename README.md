@@ -15,12 +15,18 @@ git clone https://github.com/arashkaffamanesh/lxc-rke-rancher.git
 cd lxc-rke-rancher/
 ./1-deploy-lxc-containers.sh
 ./2-deploy-rke.sh
+# if you're a cert-manager lover, please provide the right domain name and email address in 3-deploy-rancher-on-rke.sh
 ./3-deploy-rancher-on-rke.sh
+# open port 443 in your security group and map 
 ```
 
 ## What you get
 
 You should get a running RKE Cluster on 3 LXC with Rancher Server on top in less than 20 minutes.
+
+## Access the Rancher Server on RKE
+
+https://<your domain name>
 
 ## Blog post
 
