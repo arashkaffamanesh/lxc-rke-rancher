@@ -17,7 +17,7 @@ cd lxc-rke-rancher/
 ./2-deploy-rke.sh
 # if you're a cert-manager lover, please provide the right domain name and email address in 3-deploy-rancher-on-rke.sh
 ./3-deploy-rancher-on-rke.sh
-# open port 443 in your security group and map 
+# open port 443 in your security group and map your domain in dns
 ```
 
 ## What you get
