@@ -2,7 +2,7 @@
 
 ## Why this?
 
-There are some use cases for this implementation, e.g. companies who are running lXC containers on bare-metal and don't line VMs ;-)
+There are some use cases for this implementation, e.g. companies who are running LXC containers on bare-metal and don't line VMs ;-)
 
 ## Prerequisites
 
