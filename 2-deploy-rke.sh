@@ -8,7 +8,7 @@ wget https://github.com/rancher/rke/releases/download/v0.2.8/rke_linux-amd64
 mv rke_linux-amd64 rke
 sudo chmod +x rke
 sudo mv rke /usr/local/bin/
-sudo rke version
+rke --version
 
 rke up --config cluster.yml
 
@@ -16,8 +16,8 @@ echo "downloading kubectl"
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/
-[ -d .kube ] || mkdir .kube
-mv kube_config_cluster.yml .kube/config
+[ -d /home/ubuntu/.kube ] || mkdir /home/ubuntu/.kube
+mv kube_config_cluster.yml /home/ubuntu/.kube/config
 kubectl get nodes
 echo "are the nodes ready?"
 echo "if you face problems, please open an issue on github"
