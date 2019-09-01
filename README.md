@@ -26,7 +26,7 @@ You should get a running RKE Cluster on 3 LXC with Rancher Server on top in less
 
 ## Access the Rancher Server on RKE
 
-https://<your domain name>
+https://your domain name
 
 ## Blog post
 
