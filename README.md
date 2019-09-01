@@ -1,5 +1,9 @@
 # Rancher Kubernetes Engine and Rancher Server on LXC/LXD
 
+## Why this?
+
+There are some use cases for this implementation, e.g. companies who are running lXC containers on bare-metal and don't line VMs ;-)
+
 ## Prerequisites
 
 Ubuntu 18.04 bionic 20190722.1
@@ -22,7 +26,7 @@ cd lxc-rke-rancher/
 
 ## What you get
 
-You should get a running RKE Cluster on 3 LXC with Rancher Server on top in less than 20 minutes.
+You should get a running RKE Cluster on 3 LXCs with Rancher Server on top in less than 20 minutes.
 
 ## Access the Rancher Server on RKE
 
