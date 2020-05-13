@@ -24,8 +24,8 @@ for NODE in ${NODES}; do lxc file push ${SSH_PUBKEY} ${NODE}/home/ubuntu/.ssh/au
 
 # Install Docker
 for NODE in ${NODES}; do
-	lxc exec ${NODE} -- bash -c 'curl -L get.docker.com | bash'
-        # lxc exec ${NODE} -- bash -c 'curl https://releases.rancher.com/install-docker/18.06.sh | sh'
+	# lxc exec ${NODE} -- bash -c 'curl -L get.docker.com | bash'
+    lxc exec ${NODE} -- bash -c 'curl https://releases.rancher.com/install-docker/18.06.sh | sh'
 	# don't use docker 19.03 for now, it doesn't work at least on lxc
 	# lxc exec ${NODE} -- bash -c 'sudo apt install docker.io -y'
 	# Add ubuntu user to docker group
