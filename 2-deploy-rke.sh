@@ -4,7 +4,7 @@
 
 echo "downloading rke v0.1.18 for k8s 1.13.5"
 # wget https://github.com/rancher/rke/releases/download/v0.1.18/rke_linux-amd64
-wget https://github.com/rancher/rke/releases/download/v0.2.8/rke_linux-amd64
+wget https://github.com/rancher/rke/releases/download/v1.0.8/rke_linux-amd64
 mv rke_linux-amd64 rke
 sudo chmod +x rke
 sudo mv rke /usr/local/bin/
@@ -13,7 +13,7 @@ rke --version
 rke up --config cluster.yml
 
 echo "downloading kubectl"
-curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.17.5/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/
 [ -d /home/ubuntu/.kube ] || mkdir /home/ubuntu/.kube

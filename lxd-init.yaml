@@ -10,7 +10,7 @@ networks:
 storage_pools:
 - config:
     lvm.use_thinpool: "false"
-    source: /dev/xvdb
+    source: /dev/xvdba
   description: ""
   name: default
   driver: lvm

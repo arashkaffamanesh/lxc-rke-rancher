@@ -7,7 +7,7 @@ NODES=$(echo rke{1..3})
 ssh-keygen -b 2048 -t rsa -f /home/ubuntu/.ssh/id_rsa -q -N ""
 SSH_PUBKEY="/home/ubuntu/.ssh/id_rsa.pub"
 
-LXC_IMAGE="ubuntu:bionic"
+LXC_IMAGE="ubuntu:focal"
 sudo lxc profile edit default < lxc-profile-default.yaml
 sudo lxc profile create docker
 sudo lxc profile edit docker < lxc-profile-docker.yaml
@@ -25,15 +25,16 @@ for NODE in ${NODES}; do lxc file push ${SSH_PUBKEY} ${NODE}/home/ubuntu/.ssh/au
 # Install Docker
 for NODE in ${NODES}; do
 	# lxc exec ${NODE} -- bash -c 'curl -L get.docker.com | bash'
-    lxc exec ${NODE} -- bash -c 'curl https://releases.rancher.com/install-docker/18.06.sh | sh'
+        # lxc exec ${NODE} -- bash -c 'curl https://releases.rancher.com/install-docker/18.06.sh | sh'
 	# don't use docker 19.03 for now, it doesn't work at least on lxc
-	#lxc exec ${NODE} -- bash -c 'curl https://releases.rancher.com/install-docker/19.03.sh | sh'
+	lxc exec ${NODE} -- bash -c 'sudo apt install docker.io -y'
 	# Add ubuntu user to docker group
-	lxc exec ${NODE} -- usermod -aG docker ubuntu
+	lxc exec ${NODE} -- sudo usermod -aG docker ubuntu
 	# Workaround bug (for lxc ???)
 	lxc exec ${NODE} -- mkdir -p /etc/systemd/system/docker.service.d
-	lxc file push -v <(echo -e '[Service]\nMountFlags=shared') ${NODE}/etc/systemd/system/docker.service.d/override.conf
-	lxc exec ${NODE} -- systemctl daemon-reload
+	#lxc file push -v <(echo -e '[Service]\nMountFlags=shared') ${NODE}/etc/systemd/system/docker.service.d/override.conf
+	lxc file push docker-shared ${NODE}/etc/systemd/system/docker.service.d/override.conf
+	lxc exec ${NODE} -- systemctl enable --now docker
 	lxc exec ${NODE} -- systemctl restart docker.service
 
 	# Print installed version
